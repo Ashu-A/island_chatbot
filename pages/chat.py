@@ -57,7 +57,9 @@ with input:
 # wrapper
 wrapper = StreamWrapper(commit_url)
 # client
+ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 client = SpeckleClient(host='https://speckle.xyz')
+client.authenticate_with_token(ACCESS_TOKEN)
 # trasnport
 transport = wrapper.get_transport()
 
