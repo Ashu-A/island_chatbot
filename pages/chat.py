@@ -9,8 +9,10 @@ from specklepy.api import operations
 from dotenv import load_dotenv
 import os
 from specklepy.api.credentials import get_default_account
+
 # Load the .env file
 load_dotenv()
+
 # functions
 def chat_speckle(df, prompt):
     openai_api_token = os.getenv('OPENAI_API_TOKEN')
@@ -19,28 +21,7 @@ def chat_speckle(df, prompt):
     result = df.chat(prompt)
     return result
 
-
-# get parameter names
-def get_parameter_names(commit_data, selected_category):
-    parameters = commit_data[selected_category][0]["parameters"].get_dynamic_member_names()
-    parameters_names = []
-    for parameter in parameters:
-        parameters_names.append(commit_data[selected_category][0]["parameters"][parameter]["name"])
-    parameters_names = sorted(parameters_names)
-    return parameters_names
-
-
-# get parameter value by parameter name
-def get_parameter_by_name(element, parameter_name, dict):
-    for parameter in parameters:
-        key = element["parameters"][parameter]["name"]
-        if key == parameter_name:
-            dict[key] = element["parameters"][parameter]["value"]
-    return dict
-
-
 # containers 📦
-
 header = st.container()
 input = st.container()
 data = st.container()
@@ -59,12 +40,9 @@ with input:
 wrapper = StreamWrapper(commit_url)
 # client
 client = SpeckleClient(host="https://app.speckle.systems/")
-# authenticate the client with a token
-# account = get_default_account()
-# client.authenticate_with_account(account)
-ACCESS_TOKEN='1c85ef40568298221924a2feca4e1eb2c42bf0c3a6'
+ACCESS_TOKEN = '1c85ef40568298221924a2feca4e1eb2c42bf0c3a6'  # Your access token
 client.authenticate_with_token(ACCESS_TOKEN)
-# trasnport
+# transport
 transport = wrapper.get_transport()
 
 # get speckle commit
