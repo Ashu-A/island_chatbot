@@ -8,6 +8,7 @@ from specklepy.api.client import SpeckleClient
 from specklepy.api import operations
 from dotenv import load_dotenv
 import os
+from specklepy.api.credentials import get_default_account
 # Load the .env file
 load_dotenv()
 # functions
@@ -58,8 +59,11 @@ with input:
 wrapper = StreamWrapper(commit_url)
 # client
 client = SpeckleClient(host="https://app.speckle.systems/")
-ACCESS_TOKEN='1c85ef40568298221924a2feca4e1eb2c42bf0c3a6'
-client.authenticate_with_token(ACCESS_TOKEN)
+# authenticate the client with a token
+account = get_default_account()
+client.authenticate_with_account(account)
+# ACCESS_TOKEN='1c85ef40568298221924a2feca4e1eb2c42bf0c3a6'
+# client.authenticate_with_token(ACCESS_TOKEN)
 # trasnport
 transport = wrapper.get_transport()
 
