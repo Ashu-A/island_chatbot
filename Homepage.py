@@ -1,4 +1,5 @@
 import streamlit as st
+import specklepy
 from specklepy.api.client import SpeckleClient
 from specklepy.api.credentials import get_account_from_token
 from dotenv import load_dotenv
