@@ -38,7 +38,7 @@ mdurl==0.1.2
 multidict==6.0.5
 numpy==1.26.4
 openai==1.18.0
-opencv-python==4.9.0.80
+opencv-python-headless
 packaging==24.0
 pandas==1.5.3
 pandasai==2.0.32
