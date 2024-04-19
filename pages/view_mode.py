@@ -13,7 +13,6 @@ st.set_page_config(
     page_title="Island Chatbot",
     page_icon="🏝️",
 )
-nav_option = st.sidebar.radio("Navigation", ("Model Viewer", "Chat", "AI"))
 # container
 header = st.container()
 input = st.container()
