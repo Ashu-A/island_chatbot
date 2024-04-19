@@ -57,7 +57,7 @@ with input:
 # wrapper
 wrapper = StreamWrapper(commit_url)
 # client
-client = SpeckleClient(host="https://speckle.xyz/")
+client = SpeckleClient(host="https://app.speckle.systems/")
 # trasnport
 transport = wrapper.get_transport()
 
