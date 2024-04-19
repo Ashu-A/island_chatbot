@@ -1,6 +1,6 @@
 import streamlit as st
-# from PIL import Image
-# import cv2
+from PIL import Image
+import cv2
 
 st.set_page_config(
     page_title="Island Chatbot",
@@ -15,10 +15,10 @@ st.sidebar.success('select a page above.')
 
 
 
-# img = cv2.imread('team.jpeg')
-# st.image(
-#     img,
-#     caption='Team Island 2024',
-#     width=600,
-#     channels='BGR'
-# )
+img = cv2.imread('team.jpeg')
+st.image(
+    img,
+    caption='Team Island 2024',
+    width=600,
+    channels='BGR'
+)
