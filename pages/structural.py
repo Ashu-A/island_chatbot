@@ -72,3 +72,12 @@ elif calculation_choice == "Shear Check":
     shear_check()
 elif calculation_choice == "Deflection Check":
     deflection_check()
+
+
+# Footer
+st.markdown(
+    """
+    ---
+    Made with ❤️ by Island Team developed by [Ashish](https://ashu-a.github.io/ashish_ranjan/)
+    """
+)
