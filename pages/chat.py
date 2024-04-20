@@ -39,7 +39,8 @@ with input:
 # wrapper
 wrapper = StreamWrapper(commit_url)
 # client
-client = SpeckleClient(host="https://app.speckle.systems/")
+# client = SpeckleClient(host="https://app.speckle.systems/")
+client = SpeckleClient(host="https://speckle.xyz/")
 ACCESS_TOKEN = '1c85ef40568298221924a2feca4e1eb2c42bf0c3a6'  # Your access token
 client.authenticate_with_token(ACCESS_TOKEN)
 # transport
