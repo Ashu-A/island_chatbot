@@ -14,6 +14,7 @@ st.set_page_config(
     page_title="Island Chatbot",
     page_icon="🏝️",
 )
+
 header = st.container()
 with header:
     st.title('Island Chatbot')
@@ -24,7 +25,7 @@ load_dotenv()
 
 # functions
 def chat_speckle(df, prompt):
-    openai_api_token = os.getenv('OPENAI_API_TOKEN')
+    openai_api_token = st.secrets["OPENAI_API_TOKEN"]
     llm = OpenAI(api_token=openai_api_token)
     df = SmartDataframe(df, config={"llm": llm})
     result = df.chat(prompt)
@@ -56,6 +57,11 @@ input_container = st.container()
 viewer = st.container()
 report = st.container()
 data_extraction = st.container()
+
+# Header
+# with header:
+#     st.title('Island Chatbot')
+#     st.info('Page under development.')
 
 # Inputs
 with input_container:
