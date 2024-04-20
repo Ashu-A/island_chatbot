@@ -78,7 +78,7 @@ with input_container:
 
     # Authentication
     client = SpeckleClient(host="https://speckle.xyz")
-    account = get_local_accounts()
+    account = get_default_account()
     client.authenticate(token=account.token)
     client.authenticate()
 
@@ -105,7 +105,7 @@ with data_extraction:
         commit_data = None
         for commit in commits:
             if getattr(commit, "branchName", None) == bName:
-                obj_id = commit.referencedObject
+                obj_id = branch.commits.items[0].referencedObject
                 commit_data = operations.receive(obj_id=obj_id, remote_transport=client)
                 if commit_data:
                     break
