@@ -123,7 +123,7 @@ with data_extraction:
                 result = st.dataframe(result_DF)
 
             with col2:
-                st.info("⬇️chatSpeckle⬇️")
+                st.info("How can I help you today?")
                 OPENAI_API_KEY = st.text_input('OpenAI key', "sk-...vDlY")
                 input_text = st.text_area('Enter your query')
                 if input_text is not None:
