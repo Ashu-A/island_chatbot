@@ -13,3 +13,11 @@ with header:
 st.image('team.jpeg', caption='Team Island 2024', width=600)
 st.sidebar.success('select a page above.')
 
+
+# Footer
+st.markdown(
+    """
+    ---
+    Made with ❤️ by Island Team developed by [Ashish](https://ashu-a.github.io/ashish_ranjan/)
+    """
+)
