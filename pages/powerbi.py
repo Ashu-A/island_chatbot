@@ -29,6 +29,6 @@ if __name__ == "__main__":
 st.markdown(
     """
     ---
-    Made with ❤️ by Island Team developed by [Ashish](https://ashu-a.github.io/ashish_ranjan/)
+    Made with ❤️ by Island Team
     """
 )
