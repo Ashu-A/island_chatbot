@@ -1,5 +1,6 @@
-
 import streamlit as st
+from specklepy.api import operations
+from specklepy.transports.server import ServerTransport
 import pandas as pd
 from pandasai.llm.openai import OpenAI
 from pandasai import SmartDataframe
@@ -7,6 +8,16 @@ from specklepy.api.client import SpeckleClient
 from specklepy.api import operations
 from dotenv import load_dotenv
 import os
+from specklepy.api.credentials import get_default_account, get_local_accounts
+
+st.set_page_config(
+    page_title="Island Chatbot",
+    page_icon="🏝️",
+)
+header = st.container()
+with header:
+    st.title('Island Chatbot')
+    st.info('Page under development')
 
 # Load the .env file
 load_dotenv()
@@ -39,10 +50,10 @@ def get_parameter_by_name(element, parameter_name, dict):
     return dict
 
 # Page configuration
-st.set_page_config(
-    page_title="Island Chatbot",
-    page_icon="🏝️",
-)
+# st.set_page_config(
+#     page_title="Island Chatbot",
+#     page_icon="🏝️",
+# )
 
 # containers
 header = st.container()
@@ -61,11 +72,12 @@ with input_container:
     st.subheader('Inputs')
 
     speckleServer = st.text_input('Speckle Server', 'https://speckle.xyz')
-    speckleToken = st.text_input('Speckle Token', os.getenv('SPECKLE_TOKEN'))
+    speckleToken = st.text_input('Speckle Token', '1c85ef40568298221924a2feca4e1eb2c42bf0c3a6')
 
     # Authentication
-    client = SpeckleClient(host=speckleServer)
-    account = client.authenticate_with_token(speckleToken)
+    client = SpeckleClient(host="https://speckle.xyz")
+    account = get_default_account()
+    client.authenticate(token='1c85ef40568298221924a2feca4e1eb2c42bf0c3a6')
 
     streams = client.stream.list()
     streamNames = [s.name for s in streams]
@@ -90,8 +102,9 @@ with data_extraction:
         commit_data = None
         for commit in commits:
             if getattr(commit, "branchName", None) == bName:
+                transport = ServerTransport(stream.id, client)
                 obj_id = commit.referencedObject
-                commit_data = operations.receive(obj_id=obj_id, remote_transport=client)
+                commit_data = operations.receive(obj_id, remote_transport=transport)
                 if commit_data:
                     break
 
