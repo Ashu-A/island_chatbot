@@ -11,6 +11,7 @@ with header:
 
 
 from specklepy.api import operations
+from specklepy.transports.server import ServerTransport
 import streamlit as st
 import pandas as pd
 from pandasai.llm.openai import OpenAI
