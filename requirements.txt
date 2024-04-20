@@ -19,6 +19,7 @@ dataclasses-json==0.6.4
 Deprecated==1.2.14
 distro==1.9.0
 duckdb==0.10.1
+faiss-cpu==1.8.0
 Faker==19.13.0
 fonttools==4.51.0
 frozenlist==1.4.1
@@ -72,6 +73,7 @@ python-dotenv==1.0.1
 pytz==2024.1
 PyYAML==6.0.1
 referencing==0.34.0
+regex==2024.4.16
 requests==2.31.0
 requests-toolbelt==1.0.0
 rich==13.7.1
@@ -85,6 +87,7 @@ SQLAlchemy==2.0.29
 streamlit==1.33.0
 stringcase==1.2.0
 tenacity==8.2.3
+tiktoken==0.6.0
 toml==0.10.2
 toolz==0.12.1
 tornado==6.4
