@@ -63,9 +63,9 @@ account = get_default_account()
 client = SpeckleClient(host="https://app.speckle.systems/")
 # authenticate the client with a token
 
-client.authenticate_with_account(account)
-# ACCESS_TOKEN='1c85ef40568298221924a2feca4e1eb2c42bf0c3a6'
-# client.authenticate_with_token(ACCESS_TOKEN)
+# client.authenticate_with_account(account)
+ACCESS_TOKEN='1c85ef40568298221924a2feca4e1eb2c42bf0c3a6'
+client.authenticate_with_token(ACCESS_TOKEN)
 # trasnport
 transport = wrapper.get_transport()
 
