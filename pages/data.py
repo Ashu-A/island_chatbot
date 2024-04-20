@@ -1,4 +1,14 @@
 import streamlit as st
+from specklepy.api import operations
+from specklepy.transports.server import ServerTransport
+import pandas as pd
+from pandasai.llm.openai import OpenAI
+from pandasai import SmartDataframe
+from specklepy.api.client import SpeckleClient
+from specklepy.api import operations
+from dotenv import load_dotenv
+import os
+from specklepy.api.credentials import get_default_account, get_local_accounts
 
 st.set_page_config(
     page_title="Island Chatbot",
@@ -8,19 +18,6 @@ header = st.container()
 with header:
     st.title('Island Chatbot')
     st.info('Page under development')
-
-
-from specklepy.api import operations
-from specklepy.transports.server import ServerTransport
-import streamlit as st
-import pandas as pd
-from pandasai.llm.openai import OpenAI
-from pandasai import SmartDataframe
-from specklepy.api.client import SpeckleClient
-from specklepy.api import operations
-from dotenv import load_dotenv
-import os
-from specklepy.api.credentials import get_default_account, get_local_accounts
 
 # Load the .env file
 load_dotenv()
