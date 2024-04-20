@@ -104,7 +104,7 @@ with data_extraction:
         commit_data = None
         for commit in commits:
             if getattr(commit, "branchName", None) == bName:
-                obj_id = branch.commits.items[0].referencedObject
+                obj_id = commit.referencedObject
                 commit_data = operations.receive(obj_id=obj_id, remote_transport=client)
                 if commit_data:
                     break
