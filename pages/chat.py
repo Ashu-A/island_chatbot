@@ -49,11 +49,6 @@ def get_parameter_by_name(element, parameter_name, dict):
             dict[key] = element["parameters"][parameter]["value"]
     return dict
 
-# Page configuration
-# st.set_page_config(
-#     page_title="Island Chatbot",
-#     page_icon="🏝️",
-# )
 
 # containers
 header = st.container()
@@ -63,9 +58,9 @@ report = st.container()
 data_extraction = st.container()
 
 # Header
-with header:
-    st.title('Island Chatbot')
-    st.info('Page under development.')
+# with header:
+#     st.title('Island Chatbot')
+#     st.info('Page under development.')
 
 # Inputs
 with input_container:
