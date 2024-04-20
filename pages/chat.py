@@ -24,7 +24,7 @@ load_dotenv()
 
 # functions
 def chat_speckle(df, prompt):
-    openai_api_token = st.secrets("OPENAI_API_TOKEN")
+    openai_api_token = st.secrets["OPENAI_API_TOKEN"]
     llm = OpenAI(api_token=openai_api_token)
     df = SmartDataframe(df, config={"llm": llm})
     result = df.chat(prompt)
