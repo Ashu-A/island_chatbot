@@ -105,8 +105,9 @@ with data_extraction:
         commit_data = None
         for commit in commits:
             if getattr(commit, "branchName", None) == bName:
+                transport = ServerTransport(stream.id, client)
                 obj_id = commit.referencedObject
-                commit_data = operations.receive(obj_id, remote_transport=transport)
+                return operations.receive(obj_id=obj_id, remote_transport=transport)
                 if commit_data:
                     break
 
