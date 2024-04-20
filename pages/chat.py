@@ -15,7 +15,7 @@ st.set_page_config(
     page_icon="🏝️",
 )
 header = {
-    "authorization":st.secrets["OPENAI_API_TOKEN"]
+    "authorization": st.secrets["OPENAI_API_TOKEN"]
     "content-type":"application/json"
 }
 header = st.container()
