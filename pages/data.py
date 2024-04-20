@@ -11,7 +11,7 @@ import os
 from specklepy.api.credentials import get_default_account, get_local_accounts
 
 st.set_page_config(
-    page_title="Island Chatbot",
+    # page_title="Island Chatbot",
     page_icon="🏝️",
 )
 header = st.container()
