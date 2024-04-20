@@ -10,7 +10,7 @@ with header:
     st.info('Page under development')
 
 
-
+from specklepy.transports.memory import MemoryTransport
 import streamlit as st
 import pandas as pd
 from pandasai.llm.openai import OpenAI
@@ -105,7 +105,7 @@ with data_extraction:
         for commit in commits:
             if getattr(commit, "branchName", None) == bName:
                 obj_id = commit.referencedObject
-                commit_data = operations.receive(obj_id, remote_transport=wrapper.get_transport())
+                commit_data = operations.receive(obj_id, transports=[transport])
                 if commit_data:
                     break
 
