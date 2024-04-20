@@ -29,6 +29,8 @@ def chat_speckle(df, prompt):
     df = SmartDataframe(df, config={"llm": llm})
     result = df.chat(prompt)
     return result
+    if "openai_model" not in st.session_state:
+    st.session_state.openai_model = "gpt-3.5-turbo"
 
 
 # get parameter names
