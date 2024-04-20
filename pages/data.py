@@ -52,10 +52,10 @@ def get_parameter_by_name(element, parameter_name, dict):
     return dict
 
 # Page configuration
-st.set_page_config(
-    page_title="Island Chatbot",
-    page_icon="🏝️",
-)
+# st.set_page_config(
+#     page_title="Island Chatbot",
+#     page_icon="🏝️",
+# )
 
 # containers
 header = st.container()
