@@ -78,7 +78,7 @@ with input_container:
 
     # Authentication
     client = SpeckleClient(host="https://speckle.xyz")
-    account = get_default_account()
+    account = get_local_accounts()
     client.authenticate()
 
     streams = client.stream.list()
