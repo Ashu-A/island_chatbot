@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 from pandasai.llm.openai import OpenAI
@@ -90,7 +91,7 @@ with data_extraction:
         for commit in commits:
             if getattr(commit, "branchName", None) == bName:
                 obj_id = commit.referencedObject
-                commit_data = operations.receive(obj_id, client)
+                commit_data = operations.receive(obj_id=obj_id, remote_transport=client)
                 if commit_data:
                     break
 
@@ -129,5 +130,3 @@ with data_extraction:
                         st.success(result)
         else:
             st.warning("No data available for the selected branch.")
-
-# Viewer, Report, and Footer remain unchanged
