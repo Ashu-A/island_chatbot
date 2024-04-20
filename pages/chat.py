@@ -54,7 +54,7 @@ data_extraction = st.container()
 # Header
 with header:
     st.title('Island Chatbot')
-    st.info('Hi, I am... and I am developed by team Island to extract and interact with data from the Revit model.')
+    st.info('Page under development.')
 
 # Inputs
 with input_container:
