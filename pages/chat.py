@@ -130,3 +130,12 @@ with data_extraction:
                         st.success(result)
         else:
             st.warning("No data available for the selected branch.")
+
+
+# Footer
+st.markdown(
+    """
+    ---
+    Made with ❤️ by Island Team developed by [Ashish](https://ashu-a.github.io/ashish_ranjan/)
+    """
+)
