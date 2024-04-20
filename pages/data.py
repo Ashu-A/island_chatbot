@@ -11,7 +11,7 @@ import os
 from specklepy.api.credentials import get_default_account, get_local_accounts
 
 st.set_page_config(
-    # page_title="Island Chatbot",
+    page_title="Island Chatbot",
     page_icon="🏝️",
 )
 header = st.container()
@@ -49,11 +49,6 @@ def get_parameter_by_name(element, parameter_name, dict):
             dict[key] = element["parameters"][parameter]["value"]
     return dict
 
-# Page configuration
-# st.set_page_config(
-#     page_title="Island Chatbot",
-#     page_icon="🏝️",
-# )
 
 # containers
 header = st.container()
@@ -61,11 +56,6 @@ input_container = st.container()
 viewer = st.container()
 report = st.container()
 data_extraction = st.container()
-
-# Header
-with header:
-    st.title('Island Chatbot')
-    st.info('Page under development.')
 
 # Inputs
 with input_container:
