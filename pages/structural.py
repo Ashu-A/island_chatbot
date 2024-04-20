@@ -1,4 +1,12 @@
 import streamlit as st
+st.set_page_config(
+    page_title="Island Chatbot",
+    page_icon="🏝️",
+)
+header = st.container()
+with header:
+    st.title('Island Chatbot')
+    st.info('Hi I am ..... and I am developed by team Island to extract and interact with the data from the revit model.')
 
 def strength_check():
     st.subheader("Strength Check")
