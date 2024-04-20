@@ -58,3 +58,10 @@ st.write("Moment Check:", moment_check(allowable_moment, applied_moment))
 st.write("Shear Check:", shear_check(allowable_shear, applied_shear))
 st.write("Deflection Check:", deflection_check(allowable_deflection, applied_load, modulus_of_elasticity, moment_of_inertia, beam_length))
 
+# Footer
+st.markdown(
+    """
+    ---
+    Made with ❤️ by Island Team developed by [Ashish](https://ashu-a.github.io/ashish_ranjan/)
+    """
+)
