@@ -1,6 +1,5 @@
 import streamlit as st
-# from PIL import Image
-# import cv2
+
 
 st.set_page_config(
     page_title="Island Chatbot",
