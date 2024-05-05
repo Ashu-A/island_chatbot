@@ -23,7 +23,7 @@ graphs = st.container()
 
 with header:
     st.title('Island Chatbot')
-    st.info('Hi I am ..... and I am developed by team Island to extract and interact with the data from the revit model.')
+    st.info('Hi I am SEPI a virtual assistant for Island Team')
 
 # Input
 with input:
