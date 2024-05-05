@@ -6,7 +6,7 @@ st.set_page_config(
 header = st.container()
 with header:
     st.title('Island Chatbot')
-    st.info('Hi I am ..... and I am developed by team Island to extract and interact with the data from the revit model.')
+    st.info('Hi I am SEPI a virtual assistant for Island Team')
 
 def strength_check():
     st.subheader("Strength Check")
