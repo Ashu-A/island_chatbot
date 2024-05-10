@@ -14,18 +14,18 @@ st.set_page_config(
     page_title="Island Chatbot",
     page_icon="🏝️",
 )
-
 header = st.container()
 with header:
     st.title('Island Chatbot')
-    st.info('Hi I am SEPI a virtual assistant for Island Team')
+    st.info('Page under development')
 
 # Load the .env file
 load_dotenv()
 
+
 # functions
 def chat_speckle(df, prompt):
-    openai_api_token = st.secrets["OPENAI_API_TOKEN"]
+    openai_api_token = os.getenv("OPENAI_API_TOKEN")
     llm = OpenAI(api_token=openai_api_token)
     df = SmartDataframe(df, config={"llm": llm})
     result = df.chat(prompt)
@@ -58,11 +58,6 @@ viewer = st.container()
 report = st.container()
 data_extraction = st.container()
 
-# Header
-# with header:
-#     st.title('Island Chatbot')
-#     st.info('Page under development.')
-
 # Inputs
 with input_container:
     st.subheader('Inputs')
@@ -70,25 +65,36 @@ with input_container:
     speckleServer = st.text_input('Speckle Server', 'https://speckle.xyz')
     speckleToken = st.text_input('Speckle Token', '')
 
-    # Authentication
-    client = SpeckleClient(host="https://speckle.xyz")
-    account = get_default_account()
-    client.authenticate(token=speckleToken)
+    commits = None  # Initialize commits variable
 
-    streams = client.stream.list()
-    streamNames = [s.name for s in streams]
-    sName = st.selectbox('Select Stream', options=streamNames)
+    if not speckleToken:
+        st.error("Please enter your valid Speckle Token.")
 
-    stream = client.stream.search(sName)[0]
-    branches = client.branch.list(stream.id)
-    branchNames = [b.name for b in branches]
-
-    if len(branchNames) > 1:
-        bName = st.selectbox('Select Branch', options=branchNames)
     else:
-        bName = branchNames[0] if branchNames else None
+        # Authentication
+        client = SpeckleClient(host="https://speckle.xyz")
+        account = get_default_account()
 
-    commits = client.commit.list(stream.id, limit=100)
+        try:
+            client.authenticate(token=speckleToken)
+            streams = client.stream.list()
+            streamNames = [s.name for s in streams]
+            sName = st.selectbox('Select Stream', options=streamNames)
+
+            stream = client.stream.search(sName)[0]
+            branches = client.branch.list(stream.id)
+            branchNames = [b.name for b in branches]
+
+            if len(branchNames) > 1:
+                bName = st.selectbox('Select Branch', options=branchNames)
+            else:
+                bName = branchNames[0] if branchNames else None
+
+            commits = client.commit.list(stream.id, limit=100)
+
+            # Continue with the rest of the code for data extraction
+        except Exception as e:
+            st.error(f"Error: {e}")
 
 # Data extraction
 with data_extraction:
@@ -111,7 +117,8 @@ with data_extraction:
 
             form = st.form("parameter_input")
             with form:
-                selected_parameters = st.multiselect("Select Parameters", get_parameter_names(commit_data, selected_category))
+                selected_parameters = st.multiselect("Select Parameters",
+                                                     get_parameter_names(commit_data, selected_category))
                 run_button = st.form_submit_button('RUN')
 
             category_elements = commit_data[selected_category]
@@ -141,11 +148,11 @@ with data_extraction:
         else:
             st.warning("No data available for the selected branch.")
 
-
 # Footer
 st.markdown(
     """
     ---
+
     Made with ❤️ by Island Team
     """
 )
