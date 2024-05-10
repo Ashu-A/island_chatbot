@@ -142,8 +142,8 @@ with data_extraction:
                 if input_text is not None:
                     if st.button("Send"):
                         st.info('Your query:' + input_text)
-                        # result = chat_speckle(result_DF, input_text)
-                        result = ("The manufacturer of the beam is Bamgrove")
+                        result = chat_speckle(result_DF, input_text)
+                        # result = ("The manufacturer of the beam is Bamgrove")
                         st.success(result)
         else:
             st.warning("No data available for the selected branch.")
